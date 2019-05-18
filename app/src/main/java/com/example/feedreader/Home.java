@@ -20,6 +20,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     ImageButton twitterFeed , instaFeed, pinterestFeed, redditFeed;
     Toolbar toolbar;
+    String username;
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -51,33 +52,35 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         pinterestFeed = (ImageButton)findViewById(R.id.pinterestFeed);
         redditFeed = (ImageButton)findViewById(R.id.redditFeed);
 
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
 
         twitterFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, FeedView.class));
+                startActivity(new Intent(Home.this, FeedView.class).putExtra("username", username));
             }
         });
 
         instaFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, InstagramFeedView.class));
+                startActivity(new Intent(Home.this, InstagramFeedView.class).putExtra("username", username));
             }
         });
 
         pinterestFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, PinterestFeedView.class));
+                startActivity(new Intent(Home.this, PinterestFeedView.class).putExtra("username", username));
             }
         });
 
         redditFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, RedditFeedView.class));
+                startActivity(new Intent(Home.this, RedditFeedView.class).putExtra("username", username));
             }
         });
 
@@ -98,10 +101,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(Home.this,PwChange.class);
-                Intent intent1 = getIntent();
-                String username1 = intent1.getStringExtra("username");
+//                Intent intent1 = getIntent();
+//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
-                pw.putExtra("username", username1);
+                Log.e("Username", username);
+                pw.putExtra("username", username);
                 startActivity(pw);
                 break;
             case R.id.profile :
@@ -126,23 +130,23 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.twitterMenu){
-            startActivity(new Intent(Home.this, FeedView.class));
+            startActivity(new Intent(Home.this, FeedView.class).putExtra("username", username));
         }
         else if(id == R.id.instaMenu){
-            startActivity(new Intent(Home.this, InstagramFeedView.class));
+            startActivity(new Intent(Home.this, InstagramFeedView.class).putExtra("username", username));
         }
         else if (id == R.id.pinterestMenu){
-            startActivity(new Intent(Home.this, PinterestFeedView.class));
+            startActivity(new Intent(Home.this, PinterestFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.redditMenu){
-            startActivity(new Intent(Home.this, RedditFeedView.class));
+            startActivity(new Intent(Home.this, RedditFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.myProfile){
             Intent profile = new Intent(Home.this,ProfileActivity.class);
             //Getting the username
-            Intent intent = getIntent();
-            String username = intent.getStringExtra("username");
-            Log.e("Username", "blaaaaa");
+//            Intent intent = getIntent();
+//            String username = intent.getStringExtra("username");
+            Log.e("Username", username);
             //Passing the username
             profile.putExtra("username", username);
             startActivity(profile);

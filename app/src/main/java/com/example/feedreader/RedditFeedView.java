@@ -26,6 +26,7 @@ public class RedditFeedView extends AppCompatActivity implements NavigationView.
     Toolbar toolbar;
     RecyclerView recyclerView;
     RSSObject rssObject;
+    String username;
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -39,6 +40,11 @@ public class RedditFeedView extends AppCompatActivity implements NavigationView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feed_view);
+
+
+        // Getting the username
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.ic_reddit);
@@ -119,10 +125,10 @@ public class RedditFeedView extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(RedditFeedView.this,PwChange.class);
-                Intent intent1 = getIntent();
-                String username1 = intent1.getStringExtra("username");
+//                Intent intent1 = getIntent();
+//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
-                intent1.putExtra("username", username1);
+                pw.putExtra("username", username);
                 startActivity(pw);
                 break;
             case R.id.profile :
@@ -142,23 +148,19 @@ public class RedditFeedView extends AppCompatActivity implements NavigationView.
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.twitterMenu){
-            startActivity(new Intent(RedditFeedView.this, FeedView.class));
+            startActivity(new Intent(RedditFeedView.this, FeedView.class).putExtra("username", username));
         }
         else if(id == R.id.instaMenu){
-            startActivity(new Intent(RedditFeedView.this, InstagramFeedView.class));
+            startActivity(new Intent(RedditFeedView.this, InstagramFeedView.class).putExtra("username", username));
         }
         else if (id == R.id.pinterestMenu){
-            startActivity(new Intent(RedditFeedView.this, PinterestFeedView.class));
+            startActivity(new Intent(RedditFeedView.this, PinterestFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.redditMenu){
-            startActivity(new Intent(RedditFeedView.this, RedditFeedView.class));
+            startActivity(new Intent(RedditFeedView.this, RedditFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.myProfile){
             Intent profile = new Intent(RedditFeedView.this,ProfileActivity.class);
-            //Getting the username
-            Intent intent = getIntent();
-            String username = intent.getStringExtra("username");
-            Log.e("Username", username);
             //Passing the username
             profile.putExtra("username", username);
             startActivity(profile);

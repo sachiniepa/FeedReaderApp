@@ -30,6 +30,7 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigationView;
+    String username;
 
     private final String RSSlink = "https://rss.app/feeds/eQ4kCsutyHFyqilW.xml";
     private final String RSS_to_JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
@@ -44,6 +45,11 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
         toolbar.setLogo(R.drawable.ic_instagram);
         toolbar.setTitle("   Instagram");
         setSupportActionBar(toolbar);
+
+
+        // Getting the username
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
@@ -119,10 +125,10 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(InstagramFeedView.this,PwChange.class);
-                Intent intent1 = getIntent();
-                String username1 = intent1.getStringExtra("username");
+//                Intent intent1 = getIntent();
+//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
-                intent1.putExtra("username", username1);
+                pw.putExtra("username", username);
                 startActivity(pw);
                 break;
             case R.id.profile :
@@ -142,23 +148,19 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.twitterMenu){
-            startActivity(new Intent(InstagramFeedView.this, FeedView.class));
+            startActivity(new Intent(InstagramFeedView.this, FeedView.class).putExtra("username", username));
         }
         else if(id == R.id.instaMenu){
-            startActivity(new Intent(InstagramFeedView.this, InstagramFeedView.class));
+            startActivity(new Intent(InstagramFeedView.this, InstagramFeedView.class).putExtra("username", username));
         }
         else if (id == R.id.pinterestMenu){
-            startActivity(new Intent(InstagramFeedView.this, PinterestFeedView.class));
+            startActivity(new Intent(InstagramFeedView.this, PinterestFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.redditMenu){
-            startActivity(new Intent(InstagramFeedView.this, RedditFeedView.class));
+            startActivity(new Intent(InstagramFeedView.this, RedditFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.myProfile){
             Intent profile = new Intent(InstagramFeedView.this,ProfileActivity.class);
-            //Getting the username
-            Intent intent = getIntent();
-            String username = intent.getStringExtra("username");
-            Log.e("Username", username);
             //Passing the username
             profile.putExtra("username", username);
             startActivity(profile);

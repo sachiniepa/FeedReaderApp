@@ -1,104 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grad_bg"
-    tools:context=".PwChange">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:fontFamily="@font/cooperblack"
-        android:text="Change Password"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="46dp"
-        android:textStyle="bold" />
-
-    <LinearLayout
+    tools:context=".PwChange"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="240dp"
-        android:orientation="horizontal">
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="35dp"-->
-        <!--android:width="120dp"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:text="Password "/>-->
-        <EditText
-            android:id="@+id/pw"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/input_fields"
-            android:hint="New Password"
-            android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/grey" />
-
-    </LinearLayout>
-
-    <LinearLayout
+        android:background="@color/colorPrimaryDark"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+        app:title="Feed Reader"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="260dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:id="@+id/drawLayout">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="35dp"-->
-        <!--android:width="120dp"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:text="Confirm Password"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="160dp"
+                android:fontFamily="@font/cooperblack"
+                android:text="Change Password"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="46dp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/cnfPw"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="45dp"
-            android:background="@drawable/input_fields"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/grey" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="240dp"
+                android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/chngPwBtn"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="380dp"
-        android:layout_marginEnd="50dp"
-        android:alpha="0.6"
-        android:background="@drawable/buttons"
-        android:text="Change Password"
-        android:textColor="@color/white" />
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:width="120dp"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:text="Password "/>-->
+                <EditText
+                    android:id="@+id/pw"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_fields_app"
+                    android:hint="New Password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/grey" />
 
-    <Button
-        android:id="@+id/resetBtn"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="450dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/buttons"
-        android:text="Reset"
-        android:textColor="@color/white" />
+            </LinearLayout>
 
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="260dp"
+                android:orientation="horizontal">
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:width="120dp"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:text="Confirm Password"/>-->
+
+                <EditText
+                    android:id="@+id/cnfPw"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="45dp"
+                    android:background="@drawable/input_fields_app"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/grey" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/chngPwBtn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="380dp"
+                android:layout_marginEnd="50dp"
+                android:alpha="0.6"
+                android:background="@drawable/buttons_app"
+                android:text="Change Password"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/resetBtn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="450dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/buttons_app"
+                android:text="Reset"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/nav_menu"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
+            android:id="@+id/nav">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
