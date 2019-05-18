@@ -17,7 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     EditText username, fullName, phone, dob;
     DatabaseHelper db;
-    Button updateBtn, deleteBtn;
+    Button updateBtn, deleteBtn,changePwBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
         updateBtn = (Button)findViewById(R.id.updateBtn);
         deleteBtn = (Button)findViewById(R.id.deleteBtn);
+        changePwBtn = (Button) findViewById(R.id.changePwBtn);
         fullName = (EditText)findViewById(R.id.fname);
         username = (EditText)findViewById(R.id.username);
         dob = (EditText)findViewById(R.id.birthday);
@@ -63,6 +64,17 @@ public class ProfileActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(ProfileActivity.this,"Deletion failed",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        changePwBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent changePw = new Intent(ProfileActivity.this,PwChange.class);
+                Intent intent = getIntent();
+                String un = intent.getStringExtra("username");
+                changePw.putExtra("username",un);
+                startActivity(changePw);
             }
         });
 

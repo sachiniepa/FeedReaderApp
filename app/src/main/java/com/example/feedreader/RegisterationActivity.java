@@ -70,10 +70,10 @@ public class RegisterationActivity extends AppCompatActivity {
                         boolean n = db.insertUser(un,fullName,mobile,birthday,pw1);
                         if(n == true){
                             Toast.makeText(getApplicationContext(),"Registration Successful.",Toast.LENGTH_SHORT).show();
-//                            SmsManager smgr = SmsManager.getDefault();
-//                            smgr.sendTextMessage(mobile,null,"Regiistered",null,null);
-                            Intent profile = new Intent(RegisterationActivity.this,ProfileActivity.class);
-                            startActivity(profile);
+                            Intent intent = new Intent(RegisterationActivity.this,First.class);
+                            startActivity(intent);
+//                            SmsManager smsManager = SmsManager.getDefault();
+//                            smsManager.sendTextMessage("+94766172382", null, "sms message", null, null);
                         }else {
                             Toast.makeText(getApplicationContext(),"Registration Failed.",Toast.LENGTH_SHORT).show();
                         }

@@ -37,6 +37,14 @@ public class First extends AppCompatActivity {
                 Intent logout = new Intent(First.this,MainActivity.class);
                 startActivity(logout);
                 break;
+            case R.id.changepwd:
+                Intent pw = new Intent(First.this,PwChange.class);
+                Intent intent1 = getIntent();
+                String username1 = intent1.getStringExtra("username");
+                //Passing the username
+                intent1.putExtra("username", username1);
+                startActivity(pw);
+                break;
             case R.id.profile :
                 Intent profile = new Intent(First.this,ProfileActivity.class);
                 //Getting the username

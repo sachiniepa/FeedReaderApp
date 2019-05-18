@@ -19,6 +19,7 @@ public class PwChange extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pw_change);
 
+        db = new DatabaseHelper(this);
         reset = (Button) findViewById(R.id.resetBtn);
         update = (Button) findViewById(R.id.updateBtn);
         password = (EditText) findViewById(R.id.pw);
@@ -37,7 +38,7 @@ public class PwChange extends AppCompatActivity {
                 if(m == true)
                     Toast.makeText(PwChange.this,"Password Updated.",Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(PwChange.this,"Updation failed.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PwChange.this,"Updation failed .",Toast.LENGTH_SHORT).show();
 
             }
         });
