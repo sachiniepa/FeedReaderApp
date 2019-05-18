@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String un = intent.getStringExtra("username");
         username.setText(un);
+        username.setEnabled(false);
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override

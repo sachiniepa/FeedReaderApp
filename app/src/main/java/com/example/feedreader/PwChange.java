@@ -21,7 +21,7 @@ public class PwChange extends AppCompatActivity {
 
         db = new DatabaseHelper(this);
         reset = (Button) findViewById(R.id.resetBtn);
-        update = (Button) findViewById(R.id.updateBtn);
+        update = (Button) findViewById(R.id.chngPwBtn);
         password = (EditText) findViewById(R.id.pw);
         confirmPassword = (EditText) findViewById(R.id.confirmpassword);
 

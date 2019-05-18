@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent login = new Intent(MainActivity.this,First.class);
                     login.putExtra("username",un);
                     startActivity(login);
-                    Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(MainActivity.this,"You don't have an account. Please sign up.",Toast.LENGTH_SHORT).show();
                 }
