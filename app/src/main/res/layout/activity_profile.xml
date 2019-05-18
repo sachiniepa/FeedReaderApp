@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#202020"
+    tools:context=".ProfileActivity">
+
+<!--    <View
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/editProfile"
+        android:layout_marginTop="15dp"
+        android:background="#000000" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Profile"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/freestylescript"
+        android:textColor="@color/yellow"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="170dp">
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:width="80dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:text="Username"/>-->
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#ffffff"
+            android:layout_marginLeft="94dp"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:hint="@string/username"
+            />
+
+        <!--<EditText-->
+            <!--android:id="@+id/username"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:width="250dp"/>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="215dp">
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:width="80dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:text="Full Name"/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/fname"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:width="250dp"/>-->
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#ffffff"
+            android:layout_marginLeft="94dp"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:hint="Full Name"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="260dp">
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:width="80dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:text="Date of Birth"/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/birthday"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:width="250dp"/>-->
+
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#ffffff"
+            android:layout_marginLeft="94dp"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:hint="Full Name"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="305dp">
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:width="80dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:text="Mobile No."/>-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/mobile"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:width="250dp"/>-->
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColorHint="#ffffff"
+            android:layout_marginLeft="94dp"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:hint="Full Name"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/changePwBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="Change Password"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"/>
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="Update Profile"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"/>
+
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="Delete my account"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"/>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="220dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Username"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="60dp"/>
+
+    </LinearLayout>-->
+
+
+</RelativeLayout>
