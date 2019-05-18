@@ -23,7 +23,7 @@ public class PwChange extends AppCompatActivity {
         reset = (Button) findViewById(R.id.resetBtn);
         update = (Button) findViewById(R.id.chngPwBtn);
         password = (EditText) findViewById(R.id.pw);
-        confirmPassword = (EditText) findViewById(R.id.confirmpassword);
+        confirmPassword = (EditText) findViewById(R.id.cnfPw);
 
         Intent intent = getIntent();
         final String uname = intent.getStringExtra("username");

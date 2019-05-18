@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/twitterMenu"
+        android:title="Twitter"
+        android:icon="@drawable/ic_twitter_black"/>
+    <item android:id="@+id/instaMenu"
+        android:title="Instagram"
+        android:icon="@drawable/ic_insta_black"/>
+    <item android:id="@+id/pinterestMenu"
+        android:title="Pinterest"
+        android:icon="@drawable/ic_pinterest_black"/>
+    <item android:id="@+id/redditMenu"
+        android:title="Reddit"
+        android:icon="@drawable/ic_reddit_black"/>
+    <item android:id="@+id/myProfile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_profile_black"/>
+
+</menu>

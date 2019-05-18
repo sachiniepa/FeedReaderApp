@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 String pw = password.getText().toString().trim();
                 boolean m = db.validateUser(un,pw);
                 if(m == true){
-                    Intent login = new Intent(MainActivity.this,First.class);
+                    Intent login = new Intent(MainActivity.this,Home.class);
                     login.putExtra("username",un);
                     startActivity(login);
 //                    Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
