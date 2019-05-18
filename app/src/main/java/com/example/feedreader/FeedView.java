@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -112,6 +113,29 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
         if(item.getItemId()== R.id.menu_refresh){
             loadRSS();
         }
+        switch(item.getItemId()){
+            case R.id.logout :
+                Intent logout = new Intent(FeedView.this,MainActivity.class);
+                startActivity(logout);
+                break;
+            case R.id.changepwd:
+                Intent pw = new Intent(FeedView.this,PwChange.class);
+                Intent intent1 = getIntent();
+                String username1 = intent1.getStringExtra("username");
+                //Passing the username
+                intent1.putExtra("username", username1);
+                startActivity(pw);
+                break;
+            case R.id.profile :
+                Intent profile = new Intent(FeedView.this,ProfileActivity.class);
+                //Getting the username
+                Intent intent = getIntent();
+                String username = intent.getStringExtra("username");
+                //Passing the username
+                profile.putExtra("username", username);
+                startActivity(profile);
+                break;
+        }
         return true;
     }
 
@@ -129,6 +153,16 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
         }
         else if(id == R.id.redditMenu){
             startActivity(new Intent(FeedView.this, RedditFeedView.class));
+        }
+        else if(id == R.id.myProfile){
+            Intent profile = new Intent(FeedView.this,ProfileActivity.class);
+            //Getting the username
+            Intent intent = getIntent();
+            String username = intent.getStringExtra("username");
+            Log.e("Username", "blaaaaa");
+            //Passing the username
+            profile.putExtra("username", username);
+            startActivity(profile);
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);

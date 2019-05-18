@@ -17,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white"
-        app:title="Feed Reader">
+        app:title="Feed Reader"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.DrawerLayout
