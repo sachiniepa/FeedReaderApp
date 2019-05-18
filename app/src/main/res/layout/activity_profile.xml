@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#202020"
+    android:background="@drawable/grad_bg"
     tools:context=".ProfileActivity">
 
 <!--    <View
@@ -24,8 +24,8 @@
         android:textSize="50dp"
         android:textStyle="bold"
         android:layout_marginTop="100dp"
-        android:fontFamily="@font/freestylescript"
-        android:textColor="@color/yellow"
+        android:fontFamily="@font/cooperblack"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"/>
 
     <LinearLayout
@@ -43,12 +43,13 @@
 
         <EditText
             android:id="@+id/username"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:textColorHint="#ffffff"
-            android:layout_marginLeft="94dp"
-            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/grey"
+            android:textAlignment="center"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/input_fields"
             android:textColor="@color/white"
             android:hint="@string/username"
             />
@@ -83,12 +84,13 @@
             <!--android:width="250dp"/>-->
         <EditText
             android:id="@+id/fname"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:textColorHint="#ffffff"
-            android:layout_marginLeft="94dp"
-            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/grey"
+            android:layout_marginLeft="30dp"
+            android:textAlignment="center"
+            android:background="@drawable/input_fields"
             android:textColor="@color/white"
             android:hint="Full Name"
             />
@@ -117,14 +119,15 @@
 
         <EditText
             android:id="@+id/birthday"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:textColorHint="#ffffff"
-            android:layout_marginLeft="94dp"
-            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/grey"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/input_fields"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:hint="Full Name"
+            android:hint="Date of Birth"
             />
 
     </LinearLayout>
@@ -151,47 +154,49 @@
 
         <EditText
             android:id="@+id/mobile"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:textColorHint="#ffffff"
-            android:layout_marginLeft="94dp"
-            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/grey"
+            android:layout_marginLeft="30dp"
+            android:textAlignment="center"
+            android:background="@drawable/input_fields"
             android:textColor="@color/white"
-            android:hint="Full Name"
+            android:hint="Contact No."
             />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/changePwBtn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:text="Change Password"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"/>
+    <!--<Button-->
+        <!--android:id="@+id/changePwBtn"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:text="Change Password"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="400dp"/>-->
 
     <Button
         android:id="@+id/updateBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttons"
         android:text="Update Profile"
+        android:alpha="0.6"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"/>
+        android:layout_marginTop="380dp"/>
 
     <Button
         android:id="@+id/deleteBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttons"
         android:text="Delete my account"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"/>
+        android:layout_marginTop="440dp"/>
 
     <!--<LinearLayout
         android:layout_width="match_parent"

@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
         updateBtn = (Button)findViewById(R.id.updateBtn);
         deleteBtn = (Button)findViewById(R.id.deleteBtn);
-        changePwBtn = (Button) findViewById(R.id.changePwBtn);
+//        changePwBtn = (Button) findViewById(R.id.changePwBtn);
         fullName = (EditText)findViewById(R.id.fname);
         username = (EditText)findViewById(R.id.username);
         dob = (EditText)findViewById(R.id.birthday);
@@ -68,16 +68,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        changePwBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent changePw = new Intent(ProfileActivity.this,PwChange.class);
-                Intent intent = getIntent();
-                String un = intent.getStringExtra("username");
-                changePw.putExtra("username",un);
-                startActivity(changePw);
-            }
-        });
+//        changePwBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent changePw = new Intent(ProfileActivity.this,PwChange.class);
+//                Intent intent = getIntent();
+//                String un = intent.getStringExtra("username");
+//                changePw.putExtra("username",un);
+//                startActivity(changePw);
+//            }
+//        });
 
 
 

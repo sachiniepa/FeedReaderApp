@@ -101,7 +101,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 Intent intent1 = getIntent();
                 String username1 = intent1.getStringExtra("username");
                 //Passing the username
-                intent1.putExtra("username", username1);
+                pw.putExtra("username", username1);
                 startActivity(pw);
                 break;
             case R.id.profile :

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/cooperblack"
         android:text="Change Password"
         android:textAlignment="center"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="278dp"
+        android:layout_marginTop="240dp"
         android:orientation="horizontal">
 
         <!--<TextView-->
@@ -34,16 +34,16 @@
         <!--android:text="Password "/>-->
         <EditText
             android:id="@+id/pw"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/input_fields"
-            android:hint="@string/password"
+            android:hint="New Password"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey" />
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="347dp"
+        android:layout_marginTop="260dp"
         android:orientation="horizontal">
 
         <!--<TextView-->
@@ -63,41 +63,42 @@
 
         <EditText
             android:id="@+id/cnfPw"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="45dp"
             android:background="@drawable/input_fields"
-            android:hint="@string/confirm_password"
+            android:hint="Confirm Password"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey" />
     </LinearLayout>
 
     <Button
         android:id="@+id/chngPwBtn"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="466dp"
-        android:layout_marginEnd="121dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="50dp"
+        android:alpha="0.6"
         android:background="@drawable/buttons"
         android:text="Change Password"
         android:textColor="@color/white" />
 
     <Button
         android:id="@+id/resetBtn"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="539dp"
-        android:layout_marginEnd="121dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/buttons"
-        android:text="Update Profile"
+        android:text="Reset"
         android:textColor="@color/white" />
 
 </RelativeLayout>

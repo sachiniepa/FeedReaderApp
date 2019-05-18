@@ -9,4 +9,6 @@
     <color name="yellow">#FFDF00</color>
     <color name="black">#000000</color>
     <color name="img_circle">#00c2c7</color>
+    <color name="lightBlue">#5eb3ce</color>
+    <color name="grey">#808080</color>
 </resources>

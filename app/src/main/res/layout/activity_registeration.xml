@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#202020"
+    android:background="@drawable/grad_bg"
     tools:context=".RegisterationActivity">
 
     <TextView
@@ -31,9 +31,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:background="@color/black"
-        android:textColor="#ffffff"
-        android:textColorHint="@color/lightGrey"
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="@color/grey"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:hint="@string/full_name"
         />
@@ -43,24 +44,24 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@color/black"
-        android:textColor="@color/lightGrey"
-        android:textColorHint="#ffffff"
-        android:hint="@string/username"
-
-        />
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="@color/grey"
+        android:hint="@string/username" />
 
     <EditText
         android:id="@+id/dob"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@color/black"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
         android:inputType="date"
         android:clickable="true"
         android:focusable="false"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
         android:hint="Birthday"
         />
 
@@ -71,9 +72,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:inputType="phone"
-        android:background="@color/black"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:textAlignment="center"
         android:hint="@string/mobile_no"
         />
 
@@ -83,9 +85,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
-        android:background="@color/black"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
         android:password="true"
         android:hint="@string/password"
         />
@@ -96,19 +99,21 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
-        android:background="@color/black"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
         android:password="true"
         android:hint="@string/confirm_password"
         />
 
     <Button
         android:id="@+id/registerNow"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttons"
+        android:alpha="0.6"
         android:textColor="@color/white"
         android:text="@string/register_now"/>
 
