@@ -36,7 +36,7 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
 
     private final String RSSlink = "https://rss.app/feeds/kmSR0K3Q1KlifSqf.xml";
     private final String RSS_to_JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
-    private final String API_Key = "zzbi1izgxvbkjtdediygmv5kpllecn7cbts2xkkp";
+    private final String API_Key = "jpyhemseamvxnl8pdtlkt6mikhdhm3rfzmwsanpz";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
