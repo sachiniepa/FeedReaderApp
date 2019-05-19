@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -65,12 +67,39 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
                 String pw1, pw2;
                 pw1 = password.getText().toString();
                 pw2 = confirmPassword.getText().toString();
-                boolean m = db.changePassword(pw1,pw2,uname);
-                if(m == true)
-                    Toast.makeText(PwChange.this,"Password Updated.",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(PwChange.this,"Updation failed .",Toast.LENGTH_SHORT).show();
+                if(pw1.equals(pw2)){
+                    boolean m = db.changePassword(pw1,pw2,uname);
+                    if(m == true){
+                        Toast.makeText(PwChange.this,"Password Updated.",Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        confirmPassword.setText("");
+                    }
+                    else{
+                        Toast.makeText(PwChange.this,"Updation failed.",Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        confirmPassword.setText("");
+                        Animation shake = AnimationUtils.loadAnimation(PwChange.this, R.anim.shake);
+                        password.startAnimation(shake);
+                        confirmPassword.startAnimation(shake);
+                    }
+                }else {
+                    Toast.makeText(PwChange.this,"Passwords don't match.",Toast.LENGTH_SHORT).show();
+                    password.setText("");
+                    confirmPassword.setText("");
+                    Animation shake = AnimationUtils.loadAnimation(PwChange.this, R.anim.shake);
+                    password.startAnimation(shake);
+                    confirmPassword.startAnimation(shake);
+                }
 
+
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                password.setText("");
+                confirmPassword.setText("");
             }
         });
     }

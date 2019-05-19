@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -109,12 +111,29 @@ public class RegisterationActivity extends AppCompatActivity {
 //                            smsManager.sendTextMessage("+94766172382", null, "sms message", null, null);
                         }else {
                             Toast.makeText(getApplicationContext(),"Registration Failed.",Toast.LENGTH_SHORT).show();
+                            name.setText("");
+                            dob.setText("");
+                            phone.setText("");
+                            username.setText("");
+                            password.setText("");
+                            confirmpassword.setText("");
                         }
                     }else {
                         Toast.makeText(getApplicationContext(),"You are already registered.",Toast.LENGTH_SHORT).show();
+                        name.setText("");
+                        dob.setText("");
+                        phone.setText("");
+                        username.setText("");
+                        password.setText("");
+                        confirmpassword.setText("");
                     }
                 }else {
                     Toast.makeText(getApplicationContext(),"Passwords don't match.",Toast.LENGTH_SHORT).show();
+                    password.setText("");
+                    confirmpassword.setText("");
+                    Animation shake = AnimationUtils.loadAnimation(RegisterationActivity.this, R.anim.shake);
+                    password.startAnimation(shake);
+                    confirmpassword.startAnimation(shake);
                     return;
                 }
 

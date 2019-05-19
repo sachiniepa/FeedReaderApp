@@ -55,16 +55,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean validateUser(String un, String pw){
-        String q1 = "SELECT * FROM users WHERE email = '"+ un +"' AND password = '"+ pw +"';";
+    public int validateUser(String un, String pw){
+        Log.e("Log2","Login2");
+//        String q1 = "SELECT * FROM users WHERE email = '"+ un +"' AND password = '"+ pw +"';";
+        String q1 = "SELECT * FROM users WHERE email = '"+ un +"'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(q1,null);
 //        Log.d("count", cursor.getCount() + " post rows");
 //        Log.v("cursor", DatabaseUtils.dumpCursorToString(cursor));
+        Log.e("Log1","Login1");
         if(cursor.getCount()==1){
-            return true;
+            cursor.moveToFirst();
+            String pwd = cursor.getString(cursor.getColumnIndex("password"));
+            if(pw.equals(pwd))
+                return 1;
+            else
+                return 0;
         }else {
-            return false;
+            return -1;
         }
         //cursor.close();
     }

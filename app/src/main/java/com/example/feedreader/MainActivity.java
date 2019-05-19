@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,14 +44,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 String un = username.getText().toString().trim();
                 String pw = password.getText().toString().trim();
-                boolean m = db.validateUser(un,pw);
-                if(m == true){
+                int m = db.validateUser(un,pw);
+                if(m == 1){
                     Intent login = new Intent(MainActivity.this,Home.class);
                     login.putExtra("username",un);
                     startActivity(login);
 //                    Toast.makeText(MainActivity.this,"Successfully Logged in",Toast.LENGTH_SHORT).show();
-                }else {
+                }else if(m == -1){
                     Toast.makeText(MainActivity.this,"You don't have an account. Please sign up.",Toast.LENGTH_SHORT).show();
+                    Animation shake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                    username.startAnimation(shake);
+                    password.startAnimation(shake);
+                    username.setText("");
+                    password.setText("");
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Incorrect password",Toast.LENGTH_SHORT).show();
+                    Animation shake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                    username.startAnimation(shake);
+                    password.startAnimation(shake);
+                    username.setText("");
+                    password.setText("");
                 }
             }
         });
