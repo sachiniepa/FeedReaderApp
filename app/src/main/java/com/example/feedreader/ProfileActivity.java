@@ -1,5 +1,6 @@
 package com.example.feedreader;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,10 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,12 +36,14 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigationView;
+    final Calendar myCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //setting the custom toolbar as the action bar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbar.setLogo(R.drawable.ic_twitter);
         //toolbar.setTitle("Feed Reader");
@@ -61,21 +68,30 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         dob = (EditText)findViewById(R.id.birthday);
         phone = (EditText)findViewById(R.id.mobile);
 
+        //getting the value from the intent and setting it as the username
         Intent intent = getIntent();
         un = intent.getStringExtra("username");
         username.setText(un);
+        //making the username uneditable
         username.setEnabled(false);
 
+        //onclick event for the update profile button
+        //gets the values entered by the user and updates the profile.
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String fname, un, mob, bday;
+
+                //getting the user entered values
                 fname = fullName.getText().toString();
                 un = username.getText().toString();
                 mob = phone.getText().toString();
                 bday = dob.getText().toString();
 
+                //calling the updateUser method in the DatabaseHalper class to update the database.
                 boolean m = db.updateUser(fname,un,mob,bday);
+
+                //giving the user a message after updation.
                 if(m == true)
                     Toast.makeText(ProfileActivity.this,"Profile Updated.",Toast.LENGTH_SHORT).show();
                 else
@@ -83,10 +99,41 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             }
         });
 
+        //Setting the day,month and year of the calendar
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+        };
+
+        /*This on click event of the dob edittext pops up a calendar when
+         * the user clicks on the dob edittext.*/
+        dob.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(ProfileActivity.this, date , myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        //onclick event for the delete button.
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //getting the username
                 String un = username.getText().toString();
+                //calling the deleteUser method on the DatabaseHelper class to delete the record form the database.
                 boolean n = db.deleteUser(un);
                 if (n == true){
                     Toast.makeText(ProfileActivity.this,"Account Deleted.",Toast.LENGTH_LONG).show();
@@ -132,6 +179,16 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 //        phone.setText(cursor.getString(cursor.getColumnIndex("contactNo")));
 
     }
+
+    //setting the date on the dob edittext according to the date selected.
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        dob.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    //setting the actions for navigation pane
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
@@ -139,10 +196,12 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         }
         switch(item.getItemId()){
             case R.id.logout :
+                //redirects the user to the login page when the user clicks on logout
                 Intent logout = new Intent(ProfileActivity.this,MainActivity.class);
                 startActivity(logout);
                 break;
             case R.id.changepwd:
+                //redirects the user to the password change page when the user clicks on change password
                 Intent pw = new Intent(ProfileActivity.this,PwChange.class);
 //                Intent intent1 = getIntent();
 //                String username1 = intent1.getStringExtra("username");
@@ -152,6 +211,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                 startActivity(pw);
                 break;
             case R.id.profile :
+                //redirects the user to the profile page when the user clicks on profile icon
                 Intent profile = new Intent(ProfileActivity.this,ProfileActivity.class);
                 //Getting the username
                 Intent intent = getIntent();

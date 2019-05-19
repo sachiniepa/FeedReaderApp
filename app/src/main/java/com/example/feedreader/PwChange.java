@@ -13,9 +13,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+/*This activity contains a form that gets the new password and the confirm
+from the user */
 
 public class PwChange extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,6 +40,7 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pw_change);
 
+        //setting the custom toolbar as the action bar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbar.setLogo(R.drawable.ic_twitter);
         //toolbar.setTitle("Feed Reader");
@@ -56,25 +62,65 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
         password = (EditText) findViewById(R.id.pw);
         confirmPassword = (EditText) findViewById(R.id.cnfPw);
 
+        //getting the username from the intent passed
         Intent intent = getIntent();
         uname = intent.getStringExtra("username");
 
+        //on click event of the update password button
+        //gets the new password and the confirmation from the user, checks for equality and updates the database.
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String pw1, pw2;
+                //getting the password and confirmation entered by the user
                 pw1 = password.getText().toString();
                 pw2 = confirmPassword.getText().toString();
-                boolean m = db.changePassword(pw1,pw2,uname);
-                if(m == true)
-                    Toast.makeText(PwChange.this,"Password Updated.",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(PwChange.this,"Updation failed .",Toast.LENGTH_SHORT).show();
+                //checking for the equality of the new password and the confirmation
+                if(pw1.equals(pw2)){
+                    //passing the username, password and confirmation to the changePassword method in the DatabaseHelper class to update the database.
+                    boolean m = db.changePassword(pw1,pw2,uname);
+                    if(m == true){
+                        //giving the user a message when the password is successfully updated.
+                        Toast.makeText(PwChange.this,"Password Updated.",Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        confirmPassword.setText("");
+                    }
+                    else{
+                        //giving the user a message when the password updation is failed.
+                        Toast.makeText(PwChange.this,"Updation failed.",Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        confirmPassword.setText("");
+                        //animating the editTexts
+                        Animation shake = AnimationUtils.loadAnimation(PwChange.this, R.anim.shake);
+                        password.startAnimation(shake);
+                        confirmPassword.startAnimation(shake);
+                    }
+                }else {
+                    Toast.makeText(PwChange.this,"Passwords don't match.",Toast.LENGTH_SHORT).show();
+                    password.setText("");
+                    confirmPassword.setText("");
+                    //animating the editTexts
+                    Animation shake = AnimationUtils.loadAnimation(PwChange.this, R.anim.shake);
+                    password.startAnimation(shake);
+                    confirmPassword.startAnimation(shake);
+                }
 
+
+            }
+        });
+
+        //onclick event of the reset button
+        //reset the values in the editTexts
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                password.setText("");
+                confirmPassword.setText("");
             }
         });
     }
 
+    //setting the actions for navigation pane
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
@@ -82,10 +128,12 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
         }
         switch(item.getItemId()){
             case R.id.logout :
+                //redirects the user to the login page when the user clicks on logout
                 Intent logout = new Intent(PwChange.this,MainActivity.class);
                 startActivity(logout);
                 break;
             case R.id.changepwd:
+                //redirects the user to the password change page when the user clicks on change password
                 Intent pw = new Intent(PwChange.this,PwChange.class);
 //                Intent intent1 = getIntent();
 //                String username1 = intent1.getStringExtra("username");
@@ -95,6 +143,7 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(pw);
                 break;
             case R.id.profile :
+                //redirects the user to the profile page when the user clicks on profile icon
                 Intent profile = new Intent(PwChange.this,ProfileActivity.class);
                 //Getting the username
                 Intent intent = getIntent();

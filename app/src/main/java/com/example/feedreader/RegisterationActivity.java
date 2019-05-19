@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,6 +18,9 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+/*This activity contains a form which will take the required information
+* from the user for regestration.*/
 
 public class RegisterationActivity extends AppCompatActivity {
 
@@ -46,6 +51,8 @@ public class RegisterationActivity extends AppCompatActivity {
         register = (Button) findViewById(R.id.registerNow);
         login = (TextView) findViewById(R.id.login);
 
+        //on click event for the login text view
+        //The user is redirected to the login page when the user clicks on the textview.
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +63,9 @@ public class RegisterationActivity extends AppCompatActivity {
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
+            //Setting the day,month and year of the calendar
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
@@ -68,6 +75,8 @@ public class RegisterationActivity extends AppCompatActivity {
 
         };
 
+        /*This on click event of the dob edittext pops up a calendar when
+        * the user clicks on the dob edittext.*/
         dob.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -79,11 +88,15 @@ public class RegisterationActivity extends AppCompatActivity {
             }
         });
 
+        /*This on click event of the register button, method gets the details entered by the user and checks for password and equality
+        * and checks whether all the input details are provided.
+        * If the username is not taken the user is registered to the app.*/
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("test1","msg");
 
+                //getting the values entered by the user
                 String un = username.getText().toString();
                 String pw1 = password.getText().toString();
                 String pw2 = confirmpassword.getText().toString();
@@ -92,11 +105,13 @@ public class RegisterationActivity extends AppCompatActivity {
                 String birthday = dob.getText().toString();
 
 
+                //checks whether all the inputs are provided
                 if((un.equals("")) || (pw1.equals("")) || (pw2.equals("")) || (fullName.equals("")) || (mobile.equals("")) || (birthday.equals(""))){
                     Toast.makeText(getApplicationContext(),"Please fill all the details",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                //checking for password equality
                 if(pw1.equals(pw2)){
                     boolean r = db.checkUser(un);
                     if(r==true){
@@ -108,13 +123,33 @@ public class RegisterationActivity extends AppCompatActivity {
 //                            SmsManager smsManager = SmsManager.getDefault();
 //                            smsManager.sendTextMessage("+94766172382", null, "sms message", null, null);
                         }else {
+                            //warns the user when the registration is failed.
                             Toast.makeText(getApplicationContext(),"Registration Failed.",Toast.LENGTH_SHORT).show();
+                            name.setText("");
+                            dob.setText("");
+                            phone.setText("");
+                            username.setText("");
+                            password.setText("");
+                            confirmpassword.setText("");
                         }
                     }else {
+                        //gives the user an error message when an already existing user is trying to register
                         Toast.makeText(getApplicationContext(),"You are already registered.",Toast.LENGTH_SHORT).show();
+                        name.setText("");
+                        dob.setText("");
+                        phone.setText("");
+                        username.setText("");
+                        password.setText("");
+                        confirmpassword.setText("");
                     }
                 }else {
+                    //gives the user an error message when the passwords don't match.
                     Toast.makeText(getApplicationContext(),"Passwords don't match.",Toast.LENGTH_SHORT).show();
+                    password.setText("");
+                    confirmpassword.setText("");
+                    Animation shake = AnimationUtils.loadAnimation(RegisterationActivity.this, R.anim.shake);
+                    password.startAnimation(shake);
+                    confirmpassword.startAnimation(shake);
                     return;
                 }
 
@@ -124,6 +159,7 @@ public class RegisterationActivity extends AppCompatActivity {
         });
     }
 
+    //setting the date on the dob edittext according to the date selected.
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);

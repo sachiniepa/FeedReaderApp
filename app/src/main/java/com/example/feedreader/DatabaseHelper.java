@@ -14,20 +14,24 @@ import java.util.ArrayList;
 import javax.xml.transform.sax.SAXTransformerFactory;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    //creating the FeedReader database
     public DatabaseHelper(Context context) {
         super(context, "FeedReader.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //creatig the users table
         db.execSQL("Create table users(email text primary key, name text, contactNo text, bday text, password text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        //dropping the users if the table already exists
         db.execSQL("drop table if exists users");
     }
 
+    //inserting a new user to the database
     public boolean insertUser(String email, String name, String phone, String bday, String pw){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -44,6 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //checking whether the user is an already registered user
     public boolean checkUser(String email){
         String query = "SELECT * FROM users WHERE email = '"+ email+"';";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -55,20 +60,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean validateUser(String un, String pw){
-        String q1 = "SELECT * FROM users WHERE email = '"+ un +"' AND password = '"+ pw +"';";
+    //checking whether the username and password are matching
+    public int validateUser(String un, String pw){
+        Log.e("Log2","Login2");
+//        String q1 = "SELECT * FROM users WHERE email = '"+ un +"' AND password = '"+ pw +"';";
+        //getting the record with the matching username
+        String q1 = "SELECT * FROM users WHERE email = '"+ un +"'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(q1,null);
 //        Log.d("count", cursor.getCount() + " post rows");
 //        Log.v("cursor", DatabaseUtils.dumpCursorToString(cursor));
+        Log.e("Log1","Login1");
         if(cursor.getCount()==1){
-            return true;
+            cursor.moveToFirst();
+            //getting the password from the cursor object returned
+            String pwd = cursor.getString(cursor.getColumnIndex("password"));
+            //checking for password equality
+            if(pw.equals(pwd))
+                //returns 1 if the password is correct.
+                return 1;
+            else
+                //returns 0 if the password is incorrect
+                return 0;
         }else {
-            return false;
+            //returns -1 if  matching record with the username is not found.
+            return -1;
         }
         //cursor.close();
     }
 
+    //returns an ArrayList<String> containing the userdetails with the given username
     public ArrayList<String> getUserDetails(String un){
         Log.e("test7","inside method");
         String q1 = "SELECT * FROM users WHERE email = '"+ un +"';";
@@ -86,6 +107,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mArrayList;
     }
 
+    //updates the user with the given username
     public boolean updateUser(String name, String un, String phone, String dob){
         Log.e("update","update");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -105,6 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //deletes the user with the given username
     public boolean deleteUser(String un){
         SQLiteDatabase db = this.getWritableDatabase();
         int m = db.delete("users","email = '"+ un +"'",null);
@@ -116,6 +139,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //checks for password equality and if equal updates the database
     public boolean changePassword(String pw1, String pw2,String un){
         if(pw1.equals(pw2)){
             SQLiteDatabase db = this.getWritableDatabase();
