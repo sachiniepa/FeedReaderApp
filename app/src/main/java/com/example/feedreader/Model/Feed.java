@@ -1,5 +1,8 @@
 package com.example.feedreader.Model;
 
+/**
+ * JSON to Java mapper class of a RSS feed object.
+ * */
 public class Feed {
     private String url;
     private String title;

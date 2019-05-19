@@ -24,6 +24,10 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * This class defines the functionality of a single card
+ * element in Instagram and Pinterest UIs
+ * */
 class InstagramFeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
     public TextView txtTitle, txtContent;
     public ImageView imageView;
@@ -59,6 +63,9 @@ class InstagramFeedViewHolder extends RecyclerView.ViewHolder implements View.On
     }
 }
 
+/**
+ * Adapter class for Instagram and Pinterest feed views
+ * */
 public class InstagramFeedAdapter  extends RecyclerView.Adapter<InstagramFeedViewHolder>{
     private RSSObject rssObject;
     private Context mContext;
@@ -89,6 +96,10 @@ public class InstagramFeedAdapter  extends RecyclerView.Adapter<InstagramFeedVie
                 .execute(rssObject.getItems().get(i).getThumbnail());
 
 
+        /**
+         * Onclick method that enables users to
+         * navigate to relevant link
+         **/
         feedViewHolder.setItemClickListner(new ItemClickListner() {
             @Override
             public void onClick(View view, int position, boolean isLongCick) {
@@ -107,6 +118,9 @@ public class InstagramFeedAdapter  extends RecyclerView.Adapter<InstagramFeedVie
     }
 
 
+    /**
+     * Downloads an image from the RSS feed link
+     * and converts to a bitmap */
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

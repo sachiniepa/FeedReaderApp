@@ -1,7 +1,10 @@
 package com.example.feedreader.Model;
 
 import java.util.List;
-
+/**
+ * JSON to Java mapper class of an item in
+ * the RSS feed.
+ * */
 public class Item {
     public String title;
     public String pubDate;

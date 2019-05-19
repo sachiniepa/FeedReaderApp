@@ -2,6 +2,14 @@ package com.example.feedreader.Model;
 
 import java.util.List;
 
+/**
+* This is the JSON to java mapper class used to map
+* JSON object returned from the RSS feed to a Java
+* object .
+* This class is referred in the FeedView, PinterestFeedView,
+* InstagramFeedView and RedditFeedView classes.
+* Contains only relevant attributes and getter and setter methods
+* */
 public class RSSObject {
 
     private String status;
