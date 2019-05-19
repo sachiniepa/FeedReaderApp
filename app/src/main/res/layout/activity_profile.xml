@@ -34,16 +34,16 @@
         android:orientation="horizontal"
         android:layout_marginTop="170dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="35dp"-->
-            <!--android:width="80dp"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:text="Username"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:width="80dp"
+            android:textColor="@color/white"
+            android:text="Username"/>
 
         <EditText
             android:id="@+id/username"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColorHint="@color/grey"
@@ -69,12 +69,12 @@
         android:orientation="horizontal"
         android:layout_marginTop="215dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="35dp"-->
-            <!--android:width="80dp"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:text="Full Name"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:width="80dp"
+            android:textColor="@color/white"
+            android:text="Full Name"/>
 
         <!--<EditText-->
             <!--android:id="@+id/fname"-->
@@ -84,7 +84,7 @@
             <!--android:width="250dp"/>-->
         <EditText
             android:id="@+id/fname"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColorHint="@color/grey"
@@ -103,12 +103,12 @@
         android:orientation="horizontal"
         android:layout_marginTop="260dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="35dp"-->
-            <!--android:width="80dp"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:text="Date of Birth"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:width="80dp"
+            android:textColor="@color/white"
+            android:text="Date of Birth"/>
 
         <!--<EditText-->
             <!--android:id="@+id/birthday"-->
@@ -119,7 +119,7 @@
 
         <EditText
             android:id="@+id/birthday"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColorHint="@color/grey"
@@ -138,12 +138,12 @@
         android:orientation="horizontal"
         android:layout_marginTop="305dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="35dp"-->
-            <!--android:width="80dp"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:text="Mobile No."/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:width="80dp"
+            android:textColor="@color/white"
+            android:text="Mobile No."/>
 
         <!--<EditText-->
             <!--android:id="@+id/mobile"-->
@@ -154,7 +154,7 @@
 
         <EditText
             android:id="@+id/mobile"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColorHint="@color/grey"
