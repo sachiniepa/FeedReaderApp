@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*This is the main activity of this feed reader application. This
+* consists of the form that gets the username and password from the user
+* to authenticate the user. */
+
 public class MainActivity extends AppCompatActivity {
 
     EditText username;
