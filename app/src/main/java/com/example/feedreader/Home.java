@@ -16,6 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+/**
+ * The first launched after the user logs into the app.
+ * Consist of a home page view with links to launch feed view
+ * of the four social media sites
+ * */
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     ImageButton twitterFeed , instaFeed, pinterestFeed, redditFeed;
@@ -33,8 +38,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         setContentView(R.layout.activity_home);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //toolbar.setLogo(R.drawable.ic_twitter);
-        //toolbar.setTitle("Feed Reader");
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawLayout);
@@ -56,6 +59,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         username = intent.getStringExtra("username");
 
 
+        // Twitter button onClickListener
         twitterFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +67,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
+        // Instagram button onClickListener
         instaFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +75,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
+        // Pinterest button onClickListener
         pinterestFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +83,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
+        // Reddit button onClickListener
         redditFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +96,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }
 
+    /**
+     * Method executed when items on toolbar is clicked
+     * @param item: MenuItem
+     * */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
@@ -121,11 +132,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method executed on creation of the custom toolbar
+     * Embeds the menu layout to the toolbar
+     * @param menu: Menu
+     * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_page_menu, menu);
         return true;
     }
+
+    /**
+     * On click method for navigation menu items
+     * @param menuItem: MenuItem*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
@@ -143,10 +163,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
         else if(id == R.id.myProfile){
             Intent profile = new Intent(Home.this,ProfileActivity.class);
-            //Getting the username
-//            Intent intent = getIntent();
-//            String username = intent.getStringExtra("username");
-            Log.e("Username", username);
             //Passing the username
             profile.putExtra("username", username);
             startActivity(profile);

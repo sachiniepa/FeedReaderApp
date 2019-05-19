@@ -15,6 +15,10 @@ import com.example.feedreader.Interface.ItemClickListner;
 import com.example.feedreader.Model.RSSObject;
 import com.example.feedreader.R;
 
+/**
+ * This class defines the functionality of a single card
+ * element in Twitter and Reddit UIs
+ * */
 class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
 
     public TextView txtTitle, txtPubDate, txtContent;
@@ -48,6 +52,10 @@ class FeedViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
         return true;
     }
 }
+
+/**
+ * Adapter class for Twitter and Reddit feed views
+ * */
 public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
 
     private RSSObject rssObject;
@@ -73,6 +81,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder>{
         feedViewHolder.txtPubDate.setText(rssObject.getItems().get(i).getPubDate());
         feedViewHolder.txtContent.setText(rssObject.getItems().get(i).getContent());
 
+        /**
+         * Onclick method that enables users to
+         * navigate to relevant link
+         **/
         feedViewHolder.setItemClickListner(new ItemClickListner() {
             @Override
             public void onClick(View view, int position, boolean isLongCick) {

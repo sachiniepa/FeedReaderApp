@@ -7,15 +7,23 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 
+/**
+* This class is used to get the raw data from
+* the API call
+* */
 public class HTTPDataHandler {
     static String stream = null;
 
+    // Constructor
     public HTTPDataHandler() {
     }
 
+    /**
+     * Fetches raw data from a given URL
+     * @param urlString - URL
+     * */
     public String GetHTTPData(String urlString){
         try{
             URL url = new URL(urlString);

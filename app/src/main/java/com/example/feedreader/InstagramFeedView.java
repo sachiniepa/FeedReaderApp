@@ -22,6 +22,15 @@ import com.example.feedreader.Common.HTTPDataHandler;
 import com.example.feedreader.Model.RSSObject;
 import com.google.gson.Gson;
 
+/*
+ * IntagramFeedView class is used to display the CardView of
+ * Instagram posts. This activity is launched from Home activity
+ * or from the relevant link in the navigation drawer
+ *
+ * It implements NavigationView.OnNavigationItemSelectedListener
+ * interface and overrides onNavigationItemSelected() to add
+ * functionality of the navigation drawer.
+ * */
 public class InstagramFeedView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     RecyclerView recyclerView;
@@ -32,7 +41,7 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
     private NavigationView navigationView;
     String username;
 
-    private final String RSSlink = "https://rss.app/feeds/eQ4kCsutyHFyqilW.xml";
+    private final String RSSlink = "https://rss.app/feeds/qOOPMbq2UNIkSdKH.xml";
     private final String RSS_to_JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
     private final String API_Key = "jpyhemseamvxnl8pdtlkt6mikhdhm3rfzmwsanpz";
 
@@ -70,6 +79,9 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
 
     }
 
+    /**
+     * Loads RSS feed content to the activity
+     * */
     private void loadRSS() {
         AsyncTask<String, String, String> loadRSSAsync = new AsyncTask<String, String, String>(){
             ProgressDialog progressDialog = new ProgressDialog(InstagramFeedView.this);
@@ -104,12 +116,21 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
 
     }
 
+    /**
+     * Method executed on creation of the custom toolbar
+     * Embeds the menu layout to the toolbar
+     * @param menu: Menu
+     * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    /**
+     * Method executed when items on toolbar is clicked
+     * @param item: MenuItem
+     * */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
@@ -125,8 +146,6 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(InstagramFeedView.this,PwChange.class);
-//                Intent intent1 = getIntent();
-//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
                 pw.putExtra("username", username);
                 startActivity(pw);
@@ -144,6 +163,10 @@ public class InstagramFeedView extends AppCompatActivity implements NavigationVi
         return true;
     }
 
+    /**
+     * On click method for navigation menu items
+     * @param menuItem: MenuItem
+     * */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();

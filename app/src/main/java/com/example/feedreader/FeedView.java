@@ -21,7 +21,15 @@ import com.example.feedreader.Adapter.FeedAdapter;
 import com.example.feedreader.Common.HTTPDataHandler;
 import com.example.feedreader.Model.RSSObject;
 import com.google.gson.Gson;
-
+/*
+ * FeedView class is used to display the CardView of
+ * Twitter posts. This activity is launched from Home activity
+ * or from the relevant link in the navigation drawer
+ *
+ * It implements NavigationView.OnNavigationItemSelectedListener
+ * interface and overrides onNavigationItemSelected() to add
+ * functionality of the navigation drawer.
+ * */
 public class FeedView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
@@ -34,7 +42,7 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
 
     String username;
 
-    private final String RSSlink = "https://rss.app/feeds/kmSR0K3Q1KlifSqf.xml";
+    private final String RSSlink = "https://rss.app/feeds/AemOFelZNce4aW4H.xml";
     private final String RSS_to_JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
     private final String API_Key = "jpyhemseamvxnl8pdtlkt6mikhdhm3rfzmwsanpz";
 
@@ -72,6 +80,9 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
 
     }
 
+    /**
+     * Loads RSS feed content to the activity
+     * */
     private void loadRSS() {
         AsyncTask<String, String, String> loadRSSAsync = new AsyncTask<String, String, String>(){
             ProgressDialog progressDialog = new ProgressDialog(FeedView.this);
@@ -101,17 +112,27 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
         };
 
         StringBuilder url_get_data = new StringBuilder(RSS_to_JSON_API);
+        // Concatenating API key to the url string
         url_get_data.append(RSSlink+"&api_key="+API_Key);
         loadRSSAsync.execute(url_get_data.toString());
 
     }
 
+    /**
+     * Method executed on creation of the custom toolbar
+     * Embeds the menu layout to the toolbar
+     * @param menu: Menu
+     * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    /**
+     * Method executed when items on toolbar is clicked
+     * @param item: MenuItem
+     * */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
@@ -127,8 +148,6 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(FeedView.this,PwChange.class);
-//                Intent intent1 = getIntent();
-//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
                 pw.putExtra("username", username);
                 startActivity(pw);
@@ -146,6 +165,9 @@ public class FeedView extends AppCompatActivity implements NavigationView.OnNavi
         return true;
     }
 
+    /**
+     * On click method for navigation menu items
+     * @param menuItem: MenuItem*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
