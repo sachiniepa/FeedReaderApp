@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 /*This is the main activity of this feed reader application. This
 * consists of the form that gets the username and password from the user
-* to authenticate the user. */
+* to authenticate the user.*/
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         register = (TextView) findViewById(R.id.register);
 
+        //on click event for the "Register' textview
+        //Starts the Regestration activity when the user clicks on the "Register" text view
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //on click listener for the button 'Login'
+        /* gets the username and the password entered by the user and checks whether the password and username is correct.
+        * If correct, the user is redirected to the home page of the application.
+        * If not, gives the user an error.*/
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
