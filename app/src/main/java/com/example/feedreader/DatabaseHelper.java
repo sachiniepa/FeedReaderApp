@@ -31,7 +31,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists users");
     }
 
-    //inserting a new user to the database
+    /*inserting a new user to the database
+    * @param email: String
+    * @param name : String
+    * @param phone : String
+    * @param bday : String
+    * @param pw : String*/
     public boolean insertUser(String email, String name, String phone, String bday, String pw){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -48,7 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //checking whether the user is an already registered user
+    /*checking whether the user is an already registered user
+    * @param email : String */
     public boolean checkUser(String email){
         String query = "SELECT * FROM users WHERE email = '"+ email+"';";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -60,7 +66,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //checking whether the username and password are matching
+    /*checking whether the username and password are matching
+    * @param un : String
+    * @param pw : String*/
     public int validateUser(String un, String pw){
         Log.e("Log2","Login2");
 //        String q1 = "SELECT * FROM users WHERE email = '"+ un +"' AND password = '"+ pw +"';";
@@ -89,7 +97,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //cursor.close();
     }
 
-    //returns an ArrayList<String> containing the userdetails with the given username
+    /*returns an ArrayList<String> containing the userdetails with the given username
+    * @params un : String*/
     public ArrayList<String> getUserDetails(String un){
         Log.e("test7","inside method");
         String q1 = "SELECT * FROM users WHERE email = '"+ un +"';";
@@ -107,7 +116,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mArrayList;
     }
 
-    //updates the user with the given username
+    /*updates the user with the given username
+    * @param name : String
+    * @param un : String
+    * @param phone : String
+    * @param dob : String*/
     public boolean updateUser(String name, String un, String phone, String dob){
         Log.e("update","update");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -127,7 +140,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //deletes the user with the given username
+    /*deletes the user with the given username
+    * @param un : String*/
     public boolean deleteUser(String un){
         SQLiteDatabase db = this.getWritableDatabase();
         int m = db.delete("users","email = '"+ un +"'",null);
@@ -139,7 +153,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    //checks for password equality and if equal updates the database
+    /*checks for password equality and if equal updates the database
+    * @param pw1 : String
+    * @param pw2 : String
+    * @param un : String*/
     public boolean changePassword(String pw1, String pw2,String un){
         if(pw1.equals(pw2)){
             SQLiteDatabase db = this.getWritableDatabase();
