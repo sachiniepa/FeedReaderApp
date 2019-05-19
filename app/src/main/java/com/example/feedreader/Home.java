@@ -112,8 +112,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(Home.this,PwChange.class);
-//                Intent intent1 = getIntent();
-//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
                 Log.e("Username", username);
                 pw.putExtra("username", username);

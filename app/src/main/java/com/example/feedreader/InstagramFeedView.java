@@ -22,7 +22,7 @@ import com.example.feedreader.Common.HTTPDataHandler;
 import com.example.feedreader.Model.RSSObject;
 import com.google.gson.Gson;
 
-/*
+/**
  * IntagramFeedView class is used to display the CardView of
  * Instagram posts. This activity is launched from Home activity
  * or from the relevant link in the navigation drawer
