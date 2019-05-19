@@ -38,6 +38,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     private NavigationView navigationView;
     final Calendar myCalendar = Calendar.getInstance();
 
+    /*This contains a form that allows the user to update the
+    * profile details.*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -224,13 +227,21 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method executed on creation of the custom toolbar
+     * Embeds the menu layout to the toolbar
+     * @param menu: Menu
+     * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_page_menu, menu);
         return true;
     }
 
-
+    /**
+     * Method executed when items on toolbar is clicked
+     * @param menuItem: MenuItem
+     * */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();

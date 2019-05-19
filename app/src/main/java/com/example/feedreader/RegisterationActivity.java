@@ -159,7 +159,7 @@ public class RegisterationActivity extends AppCompatActivity {
         });
     }
 
-    //setting the date on the dob edittext according to the date selected.
+    //setting the date according to the date selected.
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);

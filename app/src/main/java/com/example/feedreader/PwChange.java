@@ -156,13 +156,21 @@ public class PwChange extends AppCompatActivity implements NavigationView.OnNavi
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method executed on creation of the custom toolbar
+     * Embeds the menu layout to the toolbar
+     * @param menu: Menu
+     * */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_page_menu, menu);
         return true;
     }
 
-
+    /**
+     * Method executed when items on toolbar is clicked
+     * @param menuItem: MenuItem
+     * */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
