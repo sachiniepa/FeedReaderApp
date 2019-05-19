@@ -30,6 +30,7 @@ public class PinterestFeedView extends AppCompatActivity implements NavigationVi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigationView;
+    String username;
 
     private final String RSSlink = "https://rss.app/feeds/fbDWs5mp9ut1gwjM.xml";
     private final String RSS_to_JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
@@ -39,6 +40,11 @@ public class PinterestFeedView extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feed_view);
+
+
+        // Getting the username
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.ic_pinterest);
@@ -119,10 +125,10 @@ public class PinterestFeedView extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.changepwd:
                 Intent pw = new Intent(PinterestFeedView.this,PwChange.class);
-                Intent intent1 = getIntent();
-                String username1 = intent1.getStringExtra("username");
+//                Intent intent1 = getIntent();
+//                String username1 = intent1.getStringExtra("username");
                 //Passing the username
-                intent1.putExtra("username", username1);
+                pw.putExtra("username", username);
                 startActivity(pw);
                 break;
             case R.id.profile :
@@ -142,23 +148,19 @@ public class PinterestFeedView extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.twitterMenu){
-            startActivity(new Intent(PinterestFeedView.this, FeedView.class));
+            startActivity(new Intent(PinterestFeedView.this, FeedView.class).putExtra("username", username));
         }
         else if(id == R.id.instaMenu){
-            startActivity(new Intent(PinterestFeedView.this, InstagramFeedView.class));
+            startActivity(new Intent(PinterestFeedView.this, InstagramFeedView.class).putExtra("username", username));
         }
         else if (id == R.id.pinterestMenu){
-            startActivity(new Intent(PinterestFeedView.this, PinterestFeedView.class));
+            startActivity(new Intent(PinterestFeedView.this, PinterestFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.redditMenu){
-            startActivity(new Intent(PinterestFeedView.this, RedditFeedView.class));
+            startActivity(new Intent(PinterestFeedView.this, RedditFeedView.class).putExtra("username", username));
         }
         else if(id == R.id.myProfile){
             Intent profile = new Intent(PinterestFeedView.this,ProfileActivity.class);
-            //Getting the username
-            Intent intent = getIntent();
-            String username = intent.getStringExtra("username");
-            Log.e("Username", username);
             //Passing the username
             profile.putExtra("username", username);
             startActivity(profile);
