@@ -44,7 +44,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <!--<TextView-->
                 <!--android:layout_width="wrap_content"-->
@@ -71,7 +73,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="30dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <!--<TextView-->
                 <!--android:layout_width="wrap_content"-->
@@ -104,7 +108,9 @@
                 android:alpha="0.6"
                 android:background="@color/colorPrimaryDark"
                 android:text="Change Password"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
 
             <Button
                 android:id="@+id/resetBtn"
@@ -116,7 +122,9 @@
                 android:background="@color/colorPrimaryDark"
                 android:alpha="0.6"
                 android:text="Reset"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
 
         </RelativeLayout>
 

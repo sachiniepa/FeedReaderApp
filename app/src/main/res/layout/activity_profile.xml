@@ -60,7 +60,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="130dp">
+                android:layout_marginTop="130dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="175dp">
+                android:layout_marginTop="175dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -128,7 +132,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="220dp">
+                android:layout_marginTop="220dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -165,7 +171,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="265dp">
+                android:layout_marginTop="265dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -216,7 +224,9 @@
                 android:alpha="0.6"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="340dp"/>
+                android:layout_marginTop="340dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
 
             <Button
                 android:id="@+id/deleteBtn"
@@ -227,7 +237,9 @@
                 android:text="Delete my account"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="390dp"/>
+                android:layout_marginTop="390dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
 
             <!--<LinearLayout
                 android:layout_width="match_parent"
