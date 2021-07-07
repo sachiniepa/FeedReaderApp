@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/grad_bg"
+    tools:context=".RegisterationActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/cooperblack"
+        android:layout_marginTop="80dp"/>
+
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="127dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginTop="120dp"
+        />-->
+    <EditText
+        android:id="@+id/fullName"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="@color/grey"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:hint="@string/full_name"
+        />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="@color/grey"
+        android:hint="@string/username" />
+
+    <EditText
+        android:id="@+id/dob"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
+        android:inputType="date"
+        android:clickable="true"
+        android:focusable="false"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:hint="Birthday"
+        />
+
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:inputType="phone"
+        android:background="@drawable/input_fields"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:textAlignment="center"
+        android:hint="@string/mobile_no"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:password="true"
+        android:hint="@string/password"
+        />
+
+    <EditText
+        android:id="@+id/confirmpassword"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:background="@drawable/input_fields"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:password="true"
+        android:hint="@string/confirm_password"
+        />
+
+    <Button
+        android:id="@+id/registerNow"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttons"
+        android:alpha="0.6"
+        android:textColor="@color/white"
+        android:text="@string/register_now"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:textColor="#ffffff"
+            android:text="@string/already_have_an_account"/>
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:textColor="#ffffff"
+            android:text="@string/login"/>
+    </LinearLayout>
+
+</LinearLayout>
